@@ -44,3 +44,13 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Dockerize application
+
+# Build the docker image from the current folder and add tag it
+
+`docker build . -t suki-ui:0.1`
+
+# Run the app in detached mode and map port 3000 inside the container with 3000 on current host. Detached mode is the image runs and exit out of shell. Try without -d and you'll see non detached mode. The shell prints all logs of the running image. First port maps to external:Internal (Image serving port) 3000(access on client browser) <- 80 (image)
+
+`docker run -p 3000:3000 -d suki-ui:0.1`
